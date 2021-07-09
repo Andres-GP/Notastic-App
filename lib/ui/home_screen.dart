@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'background.dart';
+import 'navigation_widget.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -15,7 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         child: Stack(
           children: [
-            Background()
+            Background(),
+            NavigationWidget()
           ],
         ),
       ),
