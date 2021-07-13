@@ -21,7 +21,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
          height: 50,
          margin: const EdgeInsets.only(top: 600),
          child: LiteRollingSwitch(
-           value: true,
+           value: false,
            textOn: "",
            textOff: "",
            textSize: 12.0,
@@ -32,6 +32,7 @@ class _NavigationWidgetState extends State<NavigationWidget> {
            onChanged: (bool position) {
              print("the button has been switched to $position");
            },
+           //onTap: ,
          ),
        )
 
