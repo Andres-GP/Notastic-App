@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../note_operation.dart';
 import 'add_note_button.dart';
 import 'background.dart';
+import 'color_picker.dart';
 import 'favorites_screen.dart';
 import 'navigation_widget.dart';
 import 'notes_section.dart';
@@ -16,7 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
+  Color _color = Colors.blue;
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(

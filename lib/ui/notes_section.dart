@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +16,7 @@ class _NotesSectionState extends State<NotesSection> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.only(right: 30, left: 30),
+        margin: const EdgeInsets.only(top: 50, bottom: 30),
         child: Consumer<NoteOperation>(
           builder: (context,NoteOperation data, child) {
             return ListView.builder(
@@ -29,3 +31,9 @@ class _NotesSectionState extends State<NotesSection> {
     );
   }
 }
+
+
+
+
+
+

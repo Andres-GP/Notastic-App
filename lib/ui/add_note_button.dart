@@ -4,6 +4,8 @@ import 'package:notastic_app/note_operation.dart';
 import 'package:notastic_app/ui/utils/colors.dart';
 import 'package:provider/provider.dart';
 
+import 'color_picker.dart';
+
 class AddNoteButton extends StatefulWidget {
   @override
   _AddNoteButtonState createState() => _AddNoteButtonState();
@@ -42,50 +44,94 @@ class _AddNoteButtonState extends State<AddNoteButton> {
 
   //Note Generator
   Widget buildSheet() => Container(
-    padding: EdgeInsets.all(16),
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
+
+    child: Stack(
+      children: [
+        ColorPickerWidget(),
+        Container(
+          padding: EdgeInsets.all(18),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              ElevatedButton(onPressed: () {
-                Provider.of<NoteOperation>(context, listen: false).addNewNote(titleText, descriptionText);
-                Navigator.pop(context);
-                Icon(CupertinoIcons.back);
-              }),
-              Spacer(),
-              ElevatedButton(onPressed: () => Navigator.of(context).pop(), child: Icon(Icons.image)),
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        Provider.of<NoteOperation>(context, listen: false).addNewNote(titleText, descriptionText);
+                        Navigator.pop(context);
+                      },
+
+                      backgroundColor: AppColor.colorPickerButtonBackgroundColor,
+                      child: Icon(Icons.check,
+                        color: AppColor.colorPickerButtonIconColor,
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    width: 40,
+                    height: 40,
+
+                    child: FloatingActionButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      backgroundColor: AppColor.colorPickerButtonBackgroundColor,
+
+                      child: Icon(Icons.close,
+                        color: AppColor.colorPickerButtonIconColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              TextField(
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Title here...",
+                    hintStyle: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                    )
+                ),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                ),
+                onChanged: (value){
+                  titleText = value;
+                },
+              ),
+              TextField(
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "And a description here...",
+                    hintStyle: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white
+                    )
+                ),
+                style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white
+                ),
+                onChanged: (value){
+                  descriptionText = value;
+                },
+              ),
             ],
           ),
-          TextField(
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: "Title here...",
-              hintStyle: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black
-              )
-            ),
-            onChanged: (value){
-              titleText = value;
-            },
-          ),
-          TextField(
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "And a description here...",
-                  hintStyle: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black
-                  )
-              ),
-              onChanged: (value){
-              descriptionText = value;
-            },
-            ),
-
-        ],
-      ),
-  );
+        )
+      ],
+    )
+    );
 }
+
+
+
+
+
