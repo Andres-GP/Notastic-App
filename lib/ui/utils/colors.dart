@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
 class AppColor {
+  //Tooltips
+  static const Color tooltipsButtonColor = Color(0xffFFC542);
+
   //Background
   static const Color backgroundPrimaryColor = Color(0xff152551);
 

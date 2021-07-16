@@ -19,7 +19,7 @@ class NoteCard extends StatelessWidget {
       margin: const EdgeInsets.only(top: 13, bottom: 12, left: 20, right: 20),
       decoration: BoxDecoration(
         //TODO add color retrieve of the constructed card
-        color: AppColor.colorPickerBlue,
+        color: colorPickerColor, /*AppColor.colorPickerBlue,*/
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(

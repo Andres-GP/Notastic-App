@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notastic_app/note_operation.dart';
 import 'package:notastic_app/ui/home_screen.dart';
+import 'package:notastic_app/ui/tooltips/intro.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
 
           primarySwatch: Colors.blue,
         ),
-        home: HomeScreen(),
+        home: Intro(),
       ),
     );
   }
