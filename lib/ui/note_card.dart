@@ -84,7 +84,7 @@ class NoteCard extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.only(top: 3),
                     child: Icon(CupertinoIcons.heart_fill,
-                      color: AppColor.noteButtonRedIconColor,
+                      color: AppColor.noteButtonDeactivatedIconColor,
                       size: 20,
                     ),
                   ),
@@ -93,7 +93,7 @@ class NoteCard extends StatelessWidget {
             ],
           ),
 
-          //Title
+          //Description
           Container(
             alignment: Alignment.topLeft,
             height: 320,

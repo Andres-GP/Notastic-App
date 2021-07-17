@@ -37,6 +37,7 @@ class AppColor {
   static const Color noteButtonBackgroundColor = Color(0xffFFFFFF);
   static const Color noteButtonIconColor = Color(0xff12121D);
   static const Color noteButtonRedIconColor = Color(0xffFF565E);
+  static const Color noteButtonDeactivatedIconColor = Color(0xffC0B9BA);
 
   static const Color noteDefaultOrangeColor = Color(0xffFF8D38);
 
