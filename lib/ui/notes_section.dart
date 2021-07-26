@@ -22,24 +22,23 @@ class _NotesSectionState extends State<NotesSection> with SingleTickerProviderSt
 
     return Center(
         child: Container(
-          margin: const EdgeInsets.only(top: 50, bottom: 30),
           child: Consumer<NoteOperation>(
               builder: (context,NoteOperation data, child) {
                 return ListView.builder(
-                    itemCount: data.getNotes.length,
-                    itemBuilder: (context, index) {
-                      final item = data.getNotes;
-                      return Dismissible(
-                        key: UniqueKey(),
-                        onDismissed: (direction) {
-                          setState(() {
-                            item.removeAt(index);
-                          });
-                        },
-                        child: NoteCard(data.getNotes[index]),
-                      );
-                    }
-                );
+                        itemCount: data.getNotes.length,
+                        itemBuilder: (context, index) {
+                          final item = data.getNotes;
+                          return Dismissible(
+                            key: UniqueKey(),
+                            onDismissed: (direction) {
+                              setState(() {
+                                item.removeAt(index);
+                              });
+                            },
+                            child: NoteCard(data.getNotes[index]),
+                          );
+                        }
+                    );
               }
           ),
         ),

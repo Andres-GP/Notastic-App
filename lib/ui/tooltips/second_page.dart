@@ -79,7 +79,7 @@ class _SecondPageScreenState extends State<SecondPageScreen> with SingleTickerPr
           Container(
             margin: EdgeInsets.only(top: 95),
             child: Text(
-              "Organize your favorites",
+              "Organize your favorites,\n Slide to delete them",
               style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
