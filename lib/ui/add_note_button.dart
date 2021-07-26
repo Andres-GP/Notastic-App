@@ -107,6 +107,8 @@ class _AddNoteButtonState extends State<AddNoteButton> {
                 },
               ),
               TextField(
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: "And a description here...",

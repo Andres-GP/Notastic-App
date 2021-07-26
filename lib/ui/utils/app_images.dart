@@ -10,10 +10,10 @@ class AppTooltipImages {
   ///Tooltips (Changeable)
 
   //1st Tooltip
-  static const String firstTooltipCards = tooltipImagesPath + 'two_cards.png';
+  static const String firstTooltipCards = tooltipImagesPath + '1st_tooltip_cards.png';
 
   //2nd Tooltip
-  static const String secondTooltipCards = tooltipImagesPath + 'cards.png';
+  static const String secondTooltipCards = tooltipImagesPath + '2nd_tooltip_cards.png';
 
 }
 

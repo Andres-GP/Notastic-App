@@ -15,52 +15,37 @@ class NotesSection extends StatefulWidget {
   _NotesSectionState createState() => _NotesSectionState();
 }
 
-class _NotesSectionState extends State<NotesSection> {
+class _NotesSectionState extends State<NotesSection> with SingleTickerProviderStateMixin {
+
   @override
   Widget build(BuildContext context) {
+
     return Center(
-      child: Container(
-        margin: const EdgeInsets.only(top: 50, bottom: 30),
-        child: Consumer<NoteOperation>(
-          builder: (context,NoteOperation data, child) {
-            return ListView.builder(
-              itemCount: data.getNotes.length,
-              itemBuilder: (context, index) {
-                final item = data.getNotes;
-                return Stack(
-                    children: [
-                      NoteCard(data.getNotes[index]),
-                      Positioned(
-                        top: 33,
-                        left: 265,
-                        child: Container(
-                          width: 40,
-                          height: 40,
-                          child: FloatingActionButton(
-                            onPressed: () {
-                              setState(() {
-                                item.removeAt(index);
-                              });
-                            },
-                            backgroundColor: AppColor.noteButtonBackgroundColor,
-                            child: Icon(Icons.delete_outline,
-                              color: AppColor.noteButtonIconColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ]
+        child: Container(
+          margin: const EdgeInsets.only(top: 50, bottom: 30),
+          child: Consumer<NoteOperation>(
+              builder: (context,NoteOperation data, child) {
+                return ListView.builder(
+                    itemCount: data.getNotes.length,
+                    itemBuilder: (context, index) {
+                      final item = data.getNotes;
+                      return Dismissible(
+                        key: UniqueKey(),
+                        onDismissed: (direction) {
+                          setState(() {
+                            item.removeAt(index);
+                          });
+                        },
+                        child: NoteCard(data.getNotes[index]),
+                      );
+                    }
                 );
               }
-              );
-          }
           ),
-      ),
-    );
+        ),
+      );
   }
 }
-
-
 
 
 

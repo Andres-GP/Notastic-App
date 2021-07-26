@@ -63,8 +63,9 @@ class _NoteCardState extends State<NoteCard> {
               ),
               Container(
                 margin: EdgeInsets.only(top: 20),
-                width: 40,
+                width: 35,
                 height: 40,
+
               ),
 
               //Spacer
