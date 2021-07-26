@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notastic_app/ui/notes_section.dart';
 import 'package:notastic_app/ui/utils/colors.dart';
 
 import 'color_picker.dart';
@@ -7,10 +8,19 @@ import 'color_picker.dart';
 import 'note.dart';
 
 
-class NoteCard extends StatelessWidget {
+
+class NoteCard extends StatefulWidget {
   final Note note;
 
   NoteCard(this.note);
+
+  @override
+  _NoteCardState createState() => _NoteCardState();
+}
+
+class _NoteCardState extends State<NoteCard> {
+  var likeButtonColor = AppColor.noteButtonDeactivatedIconColor;
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +53,7 @@ class NoteCard extends StatelessWidget {
                 margin: EdgeInsets.only(top: 20),
                 child: Container(
                   margin: EdgeInsets.only(left: 12),
-                  child: Text(note.title,
+                  child: Text(widget.note.title,
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -55,16 +65,6 @@ class NoteCard extends StatelessWidget {
                 margin: EdgeInsets.only(top: 20),
                 width: 40,
                 height: 40,
-
-                child: FloatingActionButton(
-                  onPressed: () {
-                  },
-
-                  backgroundColor: AppColor.noteButtonBackgroundColor,
-                  child: Icon(Icons.delete_outline,
-                    color: AppColor.noteButtonIconColor,
-                  ),
-                ),
               ),
 
               //Spacer
@@ -79,12 +79,21 @@ class NoteCard extends StatelessWidget {
 
                 child: FloatingActionButton(
                   onPressed: () {
+                    if (likeButtonColor == AppColor.noteButtonDeactivatedIconColor) {
+                      setState(() {
+                        likeButtonColor = AppColor.noteButtonRedIconColor;
+                      });
+                    }else{
+                      setState(() {
+                        likeButtonColor = AppColor.noteButtonDeactivatedIconColor;
+                      });
+                    }
                   },
                   backgroundColor: AppColor.noteButtonBackgroundColor,
                   child: Container(
                     margin: EdgeInsets.only(top: 3),
                     child: Icon(CupertinoIcons.heart_fill,
-                      color: AppColor.noteButtonDeactivatedIconColor,
+                      color: likeButtonColor,
                       size: 20,
                     ),
                   ),
@@ -100,7 +109,7 @@ class NoteCard extends StatelessWidget {
             width: 350,
             child: Container(
               margin: EdgeInsets.only(top: 20, left: 11),
-              child: Text(note.description,
+              child: Text(widget.note.description,
                 style: TextStyle(
                   fontSize: 15,
                   color: Colors.white,
