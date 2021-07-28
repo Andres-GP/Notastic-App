@@ -7,6 +7,7 @@ import 'package:notastic_app/ui/utils/colors.dart';
 import 'package:provider/provider.dart';
 
 import '../note_operation.dart';
+import 'color_picker.dart';
 import 'note_card.dart';
 
 
@@ -16,6 +17,7 @@ class NotesSection extends StatefulWidget {
 }
 
 class _NotesSectionState extends State<NotesSection> with SingleTickerProviderStateMixin {
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,7 @@ class _NotesSectionState extends State<NotesSection> with SingleTickerProviderSt
                               setState(() {
                                 item.removeAt(index);
                               });
-                            },
-                            child: NoteCard(data.getNotes[index]),
+                            }, child: NoteCard(data.getNotes[index]),
                           );
                         }
                     );
@@ -45,6 +46,7 @@ class _NotesSectionState extends State<NotesSection> with SingleTickerProviderSt
       );
   }
 }
+
 
 
 

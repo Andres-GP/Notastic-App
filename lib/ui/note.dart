@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 class Note {
   String title;
   String description;

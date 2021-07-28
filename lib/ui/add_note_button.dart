@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:notastic_app/note_operation.dart';
 import 'package:notastic_app/ui/utils/colors.dart';
 import 'package:provider/provider.dart';
-
 import 'color_picker.dart';
+
+
+
+
 
 class AddNoteButton extends StatefulWidget {
   @override
@@ -21,7 +24,6 @@ class _AddNoteButtonState extends State<AddNoteButton> {
           margin: const EdgeInsets.only(top: 440),
           child: FloatingActionButton(
             onPressed: () => showModalBottomSheet(
-
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(20),
@@ -47,8 +49,19 @@ class _AddNoteButtonState extends State<AddNoteButton> {
 
     child: Stack(
       children: [
-        ColorPickerWidget(),
         Container(
+          decoration: BoxDecoration(
+            color: colorPickerColor,
+            borderRadius: BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 12.0,
+                spreadRadius: 1.0,
+                offset: Offset(1.0, 1.0), // shadow direction: bottom right
+              )
+            ],
+          ),
           padding: EdgeInsets.all(18),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -58,7 +71,6 @@ class _AddNoteButtonState extends State<AddNoteButton> {
                   Container(
                     width: 40,
                     height: 40,
-
                     child: FloatingActionButton(
                       onPressed: () {
                         Provider.of<NoteOperation>(context, listen: false).addNewNote(titleText, descriptionText);
@@ -75,10 +87,11 @@ class _AddNoteButtonState extends State<AddNoteButton> {
                   Container(
                     width: 40,
                     height: 40,
-
                     child: FloatingActionButton(
-                      onPressed: () => Navigator.of(context).pop(),
                       backgroundColor: AppColor.colorPickerButtonBackgroundColor,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
 
                       child: Icon(Icons.close,
                         color: AppColor.colorPickerButtonIconColor,
@@ -125,6 +138,11 @@ class _AddNoteButtonState extends State<AddNoteButton> {
                   descriptionText = value;
                 },
               ),
+              Container(
+                color: Colors.transparent,
+                width: double.infinity,
+                height: 100,
+              )
             ],
           ),
         )

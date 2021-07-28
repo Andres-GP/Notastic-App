@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
             NotesSection(),
             AddNoteButton(),
             //FavoritesScreen(),
+            ColorPickerWidget(),
             NavigationWidget(),
             LinearGradientBorderTop(),
           ],

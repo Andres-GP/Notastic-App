@@ -1,9 +1,17 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:notastic_app/ui/refresh_screen.dart';
+import 'package:notastic_app/ui/utils/app_images.dart';
 import 'package:notastic_app/ui/utils/colors.dart';
+import 'package:flutter/cupertino.dart';
+
+import 'notes_section.dart';
+
 
 
 
 Color colorPickerColor = AppColor.colorPickerYellow;
+
 
 //UI
 class ColorPickerWidget extends StatefulWidget {
@@ -16,32 +24,81 @@ class _ColorPickerWidgetState extends State<ColorPickerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            color: colorPickerColor,
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(20),
-            )
-        ),
-        padding: EdgeInsets.all(16),
-        height: 360,
-        child: Container(
-          margin: const EdgeInsets.only(top: 270),
-          child: MyColorPicker(
-              onSelectColor: (value) {
-                setState(() {
-                  colorPickerColor = value;
-                });
-              },
-              availableColors: [
-                AppColor.colorPickerYellow,
-                AppColor.colorPickerGreen,
-                AppColor.colorPickerRed,
-                AppColor.colorPickerBlue,
-                AppColor.colorPickerOrange,
-              ],
-              initialColor: Colors.yellow),
-        )
+    return Stack(
+      clipBehavior: Clip.none,
+        children: [
+          Container(
+              margin: EdgeInsets.only(top: 100, left: 15),
+              padding: EdgeInsets.all(0),
+              height: 430,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 10.0,
+                    spreadRadius: 0.0,
+                    offset: Offset(0.0, 4.0), // shadow direction: bottom right
+                  )
+                ],
+              ),
+              child: Container(
+                child: MyColorPicker(
+                    onSelectColor: (value) {
+                      setState(() {
+                        colorPickerColor = value;
+                      });
+                    },
+                    availableColors: [
+                      AppColor.colorPickerYellow,
+                      AppColor.colorPickerGreen,
+                      AppColor.colorPickerRed,
+                      AppColor.colorPickerBlue,
+                      AppColor.colorPickerOrange,
+                    ],
+                    initialColor: Colors.yellow),
+              )
+          ),
+          Positioned(
+            top: 110,
+            left: 23,
+            child: Container(
+              width: 110,
+              height: 55,
+              decoration: BoxDecoration(
+                color: AppColor.colorPickerButtonContainerColor,
+                borderRadius: BorderRadius.circular(40),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 13.0,
+                    spreadRadius: 0.0,
+                    offset: Offset(0.0, 4.0), // shadow direction: bottom right
+                  )
+                ],
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    height: 10,
+                    width: 60,
+                    child: Image.asset(AppImages.menuWhiteDot),
+                  ),
+                  Container(
+                    width: 42,
+                    height: 42,
+                    child: FloatingActionButton(
+                      onPressed: () {},
+                      backgroundColor: AppColor.colorPickerButtonBackgroundColor,
+                      child: Icon(Icons.color_lens_rounded,
+                        color: AppColor.colorPickerButtonIconColorFolded,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ]
       );
   }
 }
@@ -79,49 +136,51 @@ class _MyColorPickerState extends State<MyColorPicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 40, right: 40),
       decoration: BoxDecoration(
         color: AppColor.colorPickerContainerColor,
         borderRadius: BorderRadius.circular(20),
       ),
-      width: double.infinity,
-      height: 200,
-      child: GridView.builder(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 50,
-            childAspectRatio: 1 / 1,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10),
-        itemCount: widget.availableColors.length,
-        itemBuilder: (context, index) {
-          final itemColor = widget.availableColors[index];
-          return InkWell(
-            onTap: () {
-              widget.onSelectColor(itemColor);
-              setState(() {
-                _pickedColor = itemColor;
-              });
-            },
-            child: Container(
-              margin: const EdgeInsets.only(top: 10),
-              width: 30,
-              height: 30,
-              decoration: BoxDecoration(
-                  color: itemColor,
-                  shape: widget.circleItem == true
-                      ? BoxShape.circle
-                      : BoxShape.rectangle,),
-              child: itemColor == _pickedColor
-                  ? Center(
-                child: Icon(
-                  Icons.check,
-                  color: Colors.white,
-                ),
-              )
-                  : Container(),
-            ),
-          );
-        },
+      width: 70,
+      height: 100,
+      child: Container(
+        child: ListView.builder(
+          itemCount: widget.availableColors.length,
+          itemBuilder: (context, index) {
+            final itemColor = widget.availableColors[index];
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RefreshScreen()),
+                );
+
+
+                widget.onSelectColor(itemColor);
+                setState(() {
+                  _pickedColor = itemColor;
+                });
+              },
+              child: Container(
+                margin: const EdgeInsets.only(top: 15),
+                width: 55,
+                height: 55,
+                decoration: BoxDecoration(
+                    color: itemColor,
+                    shape: widget.circleItem == true
+                        ? BoxShape.circle
+                        : BoxShape.rectangle,),
+                child: itemColor == _pickedColor
+                    ? Center(
+                  child: Icon(
+                    Icons.check,
+                    color: Colors.white,
+                  ),
+                )
+                    : Container(),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

@@ -3,6 +3,7 @@ class BackgroundImages {
   static const String backgroundImagesPath = 'assets/background/';
 
   static const String backgroundShapes = backgroundImagesPath + 'background_shapes.png';
+  static const String backgroundModalShapes = backgroundImagesPath + 'modal_background_shapes.png';
 }
 
 class AppTooltipImages {
@@ -18,5 +19,10 @@ class AppTooltipImages {
 }
 
 class AppImages {
-  //
+
+  ///Details
+  static const String detailsImagesPath = 'assets/details/';
+
+  //menu
+  static const String menuWhiteDot = detailsImagesPath + 'menu_white_dot.png';
 }
