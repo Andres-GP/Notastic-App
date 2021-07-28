@@ -22,7 +22,7 @@ class _LinearGradientBorderTopState extends State<LinearGradientBorderTop> {
           ),
           alignment: Alignment.topCenter,
           width: double.infinity,
-          height: 135,
+          height: 75,
         ),
       ],
     );

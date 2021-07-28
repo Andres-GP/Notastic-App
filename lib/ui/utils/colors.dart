@@ -33,7 +33,7 @@ class AppColor {
   static const Color colorPickerButtonBackgroundColor = Color(0xffEAECEF);
   static const Color colorPickerButtonIconColor = Color(0xff12121D);
 
-  static const Color colorPickerButtonIconColorFolded = Color(0xffFFC542);
+  static const Color colorPickerButtonIconColorFolded = Color(0xff0062FF);
   static const Color colorPickerButtonIconColorUnFolded = Color(0xffFD4851);
 
   static const Color colorPickerButtonContainerColor = Color(0xff265E8F);
