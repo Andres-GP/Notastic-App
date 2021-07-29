@@ -18,103 +18,121 @@ class ColorPickerWidget extends StatefulWidget {
   _ColorPickerWidgetState createState() => _ColorPickerWidgetState();
 }
 
-class _ColorPickerWidgetState extends State<ColorPickerWidget> {
+class _ColorPickerWidgetState extends State<ColorPickerWidget> with SingleTickerProviderStateMixin{
+
   var colorPickerButtonColor = AppColor.colorPickerButtonIconColorFolded;
+
+  final Duration colorMenuAnimationDuration = const Duration(milliseconds:550);
+  bool moveHorizontal = false;
+
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 160,
-      margin: EdgeInsets.only(top: 180),
-      child: Stack(
-          children: [
-            Container(
-                margin: EdgeInsets.only(left: 15),
-                padding: EdgeInsets.all(0),
-                height: 430,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 10.0,
-                      spreadRadius: 0.0,
-                      offset: Offset(0.0, 4.0), // shadow direction: bottom right
-                    )
-                  ],
-                ),
-                child: Container(
-                  child: MyColorPicker(
-                      onSelectColor: (value) {
-                        setState(() {
-                          colorPickerColor = value;
-                        });
-                      },
-                      availableColors: [
-                        AppColor.colorPickerYellow,
-                        AppColor.colorPickerGreen,
-                        AppColor.colorPickerRed,
-                        AppColor.colorPickerBlue,
-                        AppColor.colorPickerOrange,
-                      ],
-                      initialColor: Colors.yellow),
-                )
-            ),
-            Positioned(
-              top: 330,
-              left: 95,
-              child: Container(
-                width: 65,
-                height: 65,
-                decoration: BoxDecoration(
-                  color: AppColor.colorPickerButtonContainerColor,
-                  borderRadius: BorderRadius.circular(40),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 13.0,
-                      spreadRadius: 0.0,
-                      offset: Offset(0.0, 4.0), // shadow direction: bottom right
-                    )
-                  ],
-                ),
-                child: Container(
-                      width: 42,
-                      height: 42,
-                      margin: EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                    color: AppColor.colorPickerButtonContainerColor,
-                    borderRadius: BorderRadius.circular(40),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 15.0,
-                        spreadRadius: 0.0,
-                        offset: Offset(0.0, 4.0), // shadow direction: bottom right
-                      )
-                    ],
-                  ),
-                      child: FloatingActionButton(
-                        onPressed: () {
-                          if (colorPickerButtonColor == AppColor.colorPickerButtonIconColorUnFolded) {
-                            setState(() {
-                              colorPickerButtonColor = AppColor.colorPickerButtonIconColorFolded;
-                            });
-                          }else{
-                            setState(() {
-                              colorPickerButtonColor = AppColor.colorPickerButtonIconColorUnFolded;
-                            });
-                          }
-                        },
-                        backgroundColor: AppColor.colorPickerButtonBackgroundColor,
-                        child: Icon(Icons.color_lens_rounded,
-                          color: colorPickerButtonColor,
-                        ),
+    return Stack(
+      children: [
+        AnimatedPositioned(
+          duration: colorMenuAnimationDuration,
+          top: 0,
+          bottom: 0,
+          left: moveHorizontal ? -5 : -90,
+          right: 0,
+          curve: Curves.easeInOutCirc,
+          child: Container(
+            width: 160,
+            margin: EdgeInsets.only(top: 180),
+            child: Stack(
+                children: [
+                  Container(
+                      margin: EdgeInsets.only(left: 15),
+                      padding: EdgeInsets.all(0),
+                      height: 430,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 10.0,
+                            spreadRadius: 0.0,
+                            offset: Offset(0.0, 4.0), // shadow direction: bottom right
+                          )
+                        ],
                       ),
+                      child: Container(
+                        child: MyColorPicker(
+                            onSelectColor: (value) {
+                              setState(() {
+                                colorPickerColor = value;
+                              });
+                            },
+                            availableColors: [
+                              AppColor.colorPickerYellow,
+                              AppColor.colorPickerGreen,
+                              AppColor.colorPickerRed,
+                              AppColor.colorPickerBlue,
+                              AppColor.colorPickerOrange,
+                            ],
+                            initialColor: Colors.yellow),
+                      )
+                  ),
+                  Positioned(
+                    top: 330,
+                    left: 95,
+                    child: Container(
+                      width: 65,
+                      height: 65,
+                      decoration: BoxDecoration(
+                        color: AppColor.colorPickerButtonContainerColor,
+                        borderRadius: BorderRadius.circular(40),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 13.0,
+                            spreadRadius: 0.0,
+                            offset: Offset(0.0, 4.0), // shadow direction: bottom right
+                          )
+                        ],
+                      ),
+                      child: Container(
+                            width: 42,
+                            height: 42,
+                            margin: EdgeInsets.all(7),
+                        decoration: BoxDecoration(
+                          color: AppColor.colorPickerButtonContainerColor,
+                          borderRadius: BorderRadius.circular(40),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 15.0,
+                              spreadRadius: 0.0,
+                              offset: Offset(0.0, 4.0), // shadow direction: bottom right
+                            )
+                          ],
+                        ),
+                            child: FloatingActionButton(
+                              onPressed: () {
+                                moveHorizontal = !moveHorizontal;
+                                if (colorPickerButtonColor == AppColor.colorPickerButtonIconColorUnFolded) {
+                                  setState(() {
+                                    colorPickerButtonColor = AppColor.colorPickerButtonIconColorFolded;
+                                  });
+                                }else{
+                                  setState(() {
+                                    colorPickerButtonColor = AppColor.colorPickerButtonIconColorUnFolded;
+                                  });
+                                }
+                              },
+                              backgroundColor: AppColor.colorPickerButtonBackgroundColor,
+                              child: Icon(Icons.color_lens_rounded,
+                                color: colorPickerButtonColor,
+                              ),
+                            ),
+                          ),
                     ),
+                  )
+                ]
               ),
-            )
-          ]
+          ),
         ),
+      ],
     );
   }
 }
