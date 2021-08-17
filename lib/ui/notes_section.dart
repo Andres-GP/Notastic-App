@@ -22,8 +22,7 @@ class _NotesSectionState extends State<NotesSection> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
 
-    return Center(
-        child: Container(
+    return Container(
           child: Consumer<NoteOperation>(
               builder: (context,NoteOperation data, child) {
                 return ListView.builder(
@@ -42,8 +41,7 @@ class _NotesSectionState extends State<NotesSection> with SingleTickerProviderSt
                     );
               }
           ),
-        ),
-      );
+        );
   }
 }
 

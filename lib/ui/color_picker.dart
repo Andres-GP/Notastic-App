@@ -5,7 +5,6 @@ import 'package:notastic_app/ui/utils/app_images.dart';
 import 'package:notastic_app/ui/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'notes_section.dart';
 
 
 
@@ -23,7 +22,7 @@ class _ColorPickerWidgetState extends State<ColorPickerWidget> with SingleTicker
   var colorPickerButtonColor = AppColor.colorPickerButtonIconColorFolded;
 
   final Duration colorMenuAnimationDuration = const Duration(milliseconds:550);
-  bool moveHorizontal = false;
+  bool moveColorPickerHorizontal = false;
 
 
   @override
@@ -34,7 +33,7 @@ class _ColorPickerWidgetState extends State<ColorPickerWidget> with SingleTicker
           duration: colorMenuAnimationDuration,
           top: 0,
           bottom: 0,
-          left: moveHorizontal ? -5 : -90,
+          left: moveColorPickerHorizontal ? -5 : -90,
           right: 0,
           curve: Curves.easeInOutCirc,
           child: Container(
@@ -109,7 +108,7 @@ class _ColorPickerWidgetState extends State<ColorPickerWidget> with SingleTicker
                         ),
                             child: FloatingActionButton(
                               onPressed: () {
-                                moveHorizontal = !moveHorizontal;
+                                moveColorPickerHorizontal = !moveColorPickerHorizontal;
                                 if (colorPickerButtonColor == AppColor.colorPickerButtonIconColorUnFolded) {
                                   setState(() {
                                     colorPickerButtonColor = AppColor.colorPickerButtonIconColorFolded;

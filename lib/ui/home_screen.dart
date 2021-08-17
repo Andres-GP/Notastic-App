@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'add_note_button.dart';
 import 'background.dart';
 import 'color_picker.dart';
-import 'favorites_screen.dart';
+import 'copyright_policies_screen.dart';
 import 'linear_gradient.dart';
 import 'navigation_widget.dart';
 import 'notes_section.dart';
@@ -25,7 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
             Background(),
             NotesSection(),
             AddNoteButton(),
-            //FavoritesScreen(),
             ColorPickerWidget(),
             NavigationWidget(),
             LinearGradientBorderTop(),

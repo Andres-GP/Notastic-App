@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'package:notastic_app/ui/refresh_screen.dart';
 import 'package:notastic_app/ui/utils/colors.dart';
+
+import 'copyright_policies_screen.dart';
+
 
 class NavigationWidget extends StatefulWidget {
   @override
@@ -25,17 +29,28 @@ class _NavigationWidgetState extends State<NavigationWidget> {
            textOn: "",
            textOff: "",
            textSize: 12.0,
-           iconOn: CupertinoIcons.heart_fill,
+           iconOn: Icons.book,
            iconOff: CupertinoIcons.pen,
            colorOff: AppColor.navigationSwitchButtonIconYellowColor,
-           colorOn: AppColor.navigationSwitchButtonIconRedColor,
+           colorOn: AppColor.copyRightBackgroundColor,
            onChanged: (bool position) {
+
+             if (position == true) {
+               Navigator.push(
+                 context,
+                 MaterialPageRoute(
+                     builder: (context) => CopyrightAndPoliciesScreen()),
+               );
+             } else {
+               print("navigation error");
+             }
              print("the button has been switched to $position");
            },
            //onTap: ,
          ),
        )
-
       );
   }
 }
+
+

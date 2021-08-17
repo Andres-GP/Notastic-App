@@ -47,4 +47,8 @@ class AppColor {
 
   static const Color noteDefaultOrangeColor = Color(0xffFF8D38);
 
+
+  //Copyright
+  static const Color copyRightBackgroundColor = Color(0xff3ED598);
+
 }
