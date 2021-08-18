@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.notastic_app">
    <application
-        android:label="notastic_app"
+        android:label="Notastic"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

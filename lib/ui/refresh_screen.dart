@@ -33,7 +33,7 @@ class _RefreshScreenState extends State<RefreshScreen> {
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(bottom: 25, right: 155),
+                  margin: EdgeInsets.only(bottom: 25, right: 140),
                   child: Text(
                     "Colors Changed!!",
                     style: TextStyle(
