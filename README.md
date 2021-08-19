@@ -1,16 +1,17 @@
-# notastic_app
+# notastic
 
-A new Flutter application.
+Beautiful and simple notes app made in flutter
 
-## Getting Started
+# Features & 
+ - Add Notes
+ - Delete Notes
+ - Change Notes Colors
+ - Like every note
+ - Numerous animations
+ - Tooltips
 
-This project is a starting point for a Flutter application.
+![1st Screen](https://user-images.githubusercontent.com/81189565/130141398-31a754b0-8d84-4126-9cfd-13a888a06300.png)
+![FunctionsGraph](https://user-images.githubusercontent.com/81189565/130141400-1548ae2c-7f78-4687-8949-80d6674f0685.png)
+![Privacy policy and Copyright Screen](https://user-images.githubusercontent.com/81189565/130141404-e6231633-f6b7-43b6-bc27-3d5195da2aa3.png)
+![Refreh Screen](https://user-images.githubusercontent.com/81189565/130141408-23bef355-7a28-46b9-9986-306833420e8a.png)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
