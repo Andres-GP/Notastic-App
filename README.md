@@ -12,7 +12,8 @@ Beautiful and simple notes app made in flutter
  - Numerous animations
  - Tooltips
 
-![1st Screen](https://user-images.githubusercontent.com/81189565/130141398-31a754b0-8d84-4126-9cfd-13a888a06300.png)
-![Privacy policy and Copyright Screen](https://user-images.githubusercontent.com/81189565/130141404-e6231633-f6b7-43b6-bc27-3d5195da2aa3.png)
-![Refreh Screen](https://user-images.githubusercontent.com/81189565/130141408-23bef355-7a28-46b9-9986-306833420e8a.png)
+![1st Screen](https://user-images.githubusercontent.com/81189565/130141869-3f630d03-970a-4f8c-9407-863bf9a7c1ad.png)
+![Refreh Screen](https://user-images.githubusercontent.com/81189565/130141874-6bcf6ef0-32c0-4318-b988-f8e79dffc4cf.png)
+![Privacy policy and Copyright Screen](https://user-images.githubusercontent.com/81189565/130141872-c81afcbd-321c-4730-b627-3a78d710de05.png)
+
 
