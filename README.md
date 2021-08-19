@@ -2,6 +2,7 @@
 
 Beautiful and simple notes app made in flutter
 
+---
 
 Find it on Google's Playstore:
 
