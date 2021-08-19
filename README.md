@@ -13,7 +13,9 @@ Beautiful and simple notes app made in flutter
  - Tooltips
 
 ![1st Screen](https://user-images.githubusercontent.com/81189565/130141869-3f630d03-970a-4f8c-9407-863bf9a7c1ad.png)
+---
 ![Refreh Screen](https://user-images.githubusercontent.com/81189565/130141874-6bcf6ef0-32c0-4318-b988-f8e79dffc4cf.png)
+---
 ![Privacy policy and Copyright Screen](https://user-images.githubusercontent.com/81189565/130141872-c81afcbd-321c-4730-b627-3a78d710de05.png)
 
 
