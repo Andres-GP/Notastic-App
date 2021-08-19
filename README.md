@@ -1,4 +1,4 @@
-# notastic
+# Notastic
 
 Beautiful and simple notes app made in flutter
 
