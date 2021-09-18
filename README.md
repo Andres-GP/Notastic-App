@@ -4,7 +4,7 @@ Beautiful and simple notes app made in flutter
 
 ---
 
-Find it on Google's Playstore:
+Find it on Google's Playstore: https://play.google.com/store/apps/details?id=com.andresgarcia.notastic
 
 ![FunctionsGraph](https://user-images.githubusercontent.com/81189565/130141400-1548ae2c-7f78-4687-8949-80d6674f0685.png)
 
